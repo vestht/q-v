@@ -1,13 +1,3 @@
-# Internet Gateway
-resource "aws_internet_gateway" "internet_gateway" {
-	vpc_id = aws_vpc.vpc.id
-
-	tags = {
-		Name = "VESTHT-VPC-IGW"
-	}
-}
-
-
 # Security Group (Default)
 resource "aws_default_security_group" "default_security_group" {
 	vpc_id = aws_vpc.vpc.id
@@ -34,7 +24,7 @@ resource "aws_default_security_group" "default_security_group" {
 }
 
 
-# Network ACL
+# Network ACL (Default)
 resource "aws_default_network_acl" "default_network_acl" {
 	default_network_acl_id = aws_vpc.vpc.default_network_acl_id
 
@@ -65,11 +55,6 @@ resource "aws_default_network_acl" "default_network_acl" {
 # Route Table (Default)
 resource "aws_default_route_table" "default_route_table" {
 	default_route_table_id = aws_vpc.vpc.default_route_table_id
-
-	route {
-        cidr_block = "0.0.0.0/0"
-		gateway_id = aws_internet_gateway.internet_gateway.id
-    }
 
 	tags = {
 		Name = "VESTHT-VPC-DEFAULT-RTB"
