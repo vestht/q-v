@@ -14,7 +14,7 @@ resource "aws_launch_template" "ecs_launch_template" {
 	name = "ECS-LAUNCH-TEMPLATE"
 	image_id = "ami-0e6ac2b8d66883414"
 	instance_type = "t2.micro"
-	security_group_names = [ var.ecs_instance_sg_name ]
+	vpc_security_group_ids = [ var.ecs_instance_sg_id ]
 
 	iam_instance_profile {
 		name = var.ecs_iam_instance_profile_name
@@ -28,10 +28,6 @@ resource "aws_launch_template" "ecs_launch_template" {
 
 	monitoring {
 		enabled = false
-	}
-
-	network_interfaces {
-		associate_public_ip_address = false
 	}
 }
 

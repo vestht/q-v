@@ -11,5 +11,5 @@ module "containers" {
     ecs_iam_instance_profile_name = module.iam.ecs_iam_instance_profile_name
     public_subnet_1_id = module.networking.public_subnet_1_id
     public_subnet_2_id = module.networking.public_subnet_2_id
-    ecs_instance_sg_name = module.networking.ecs_instance_sg_name
+    ecs_instance_sg_id = module.networking.ecs_instance_sg_id
 }

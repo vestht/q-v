@@ -17,7 +17,7 @@ variable "public_subnet_2_id" {
 }
 
 # Variable: ecs_instance_sg_name
-variable "ecs_instance_sg_name" {
+variable "ecs_instance_sg_id" {
   type     = string
   nullable = false
 }

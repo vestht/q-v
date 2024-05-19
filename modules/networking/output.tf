@@ -9,6 +9,6 @@ output "public_subnet_2_id" {
 }
 
 # Output: ecs_instance_sg
-output "ecs_instance_sg_name" {
-    value = aws_security_group.ecs_instance_sg.name
+output "ecs_instance_sg_id" {
+    value = aws_security_group.ecs_instance_sg.id
 }
